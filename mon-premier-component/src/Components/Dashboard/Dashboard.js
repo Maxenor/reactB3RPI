@@ -5,7 +5,8 @@ import Table from "./Table";
 function Dashboard() {
   return (
     <div className="App">
-      <Table />
+      <h1 className="Title">Dashboard</h1>
+      <Table className='Table'/>
     </div>
   );
 }

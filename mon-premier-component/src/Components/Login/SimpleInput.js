@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SimpleInput = (props) => {
   const [nameState, setNameState] = useState("");
@@ -21,20 +22,23 @@ const SimpleInput = (props) => {
 
   const nameBlurHandler = (e) => {
     setNameIsTouched(true);
-
+    console.log(nameIsValid)
     if (nameState.trim() === "") {
       setNameIsValid(false);
       return;
     }
+    setNameIsValid(true)
   };
   const passwordBlurHandler = (e) => {
     setPasswordIsTouched(true);
-
-    if (password.length() < 8) {
+    if (password.length < 8) {
       setPasswordIsValid(false);
       return;
     }
+    setPasswordIsValid(true)
   };
+
+  const navigate = useNavigate();
 
   const formSubmissionHandler = (event) => {
     event.preventDefault();
@@ -47,13 +51,17 @@ const SimpleInput = (props) => {
     }
     setNameIsValid(true);
     if (password.length < 8) {
-      set
+      setPasswordIsValid(false);
     }
+    setPasswordIsValid(true);
     setNameState("");
     setPasswordState('');
+    navigate("/dashboard")
+    //https://reactrouter.com/en/main/fetch/redirect ne marche pas
   };
 
   const nameInputIsinvalid = !nameIsValid && nameIsTouched;
+  const passwordInputIsInvalid = !passwordIsValid && passwordIsTouched;
   const nameInputClasses = nameInputIsinvalid
     ? "form-control invalid"
     : "form-control";
@@ -61,7 +69,7 @@ const SimpleInput = (props) => {
   return (
     <form onSubmit={formSubmissionHandler}>
       <div className={nameInputClasses}>
-        <label htmlFor="name">Your Name</label>
+        <label htmlFor="name">Nom d'utilisateur</label>
         <input
           value={nameState}
           onChange={nameChangeHandler}
@@ -74,15 +82,18 @@ const SimpleInput = (props) => {
         {nameInputIsinvalid && (
           <p className="error-text">Le nom ne peut pas être vide</p>
         )}
-        <label htmlFor="name">Mot de passe</label>
+        <label htmlFor="password">Mot de passe</label>
         <input
-          value={nameState}
+          value={password}
           onChange={passwordChangeHandler}
-          onBlur={nameBlurHandler}
+          onBlur={passwordBlurHandler}
           type="password"
           id="password"
           placeholder="Mot de passe"
         />
+        {passwordInputIsInvalid && (
+          <p className="error-text">Le not de passe doit faire plus de 8 caractères</p>
+        )}
       </div>
       <div className="form-actions">
         <button>Connexion</button>
