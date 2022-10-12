@@ -1,4 +1,4 @@
-import SimpleInput from "./SimpleInput";
+import SimpleInput from './SimpleInputv2';
 import './Login.css'
 
 function App() {
