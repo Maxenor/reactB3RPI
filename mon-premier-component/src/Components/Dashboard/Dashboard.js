@@ -1,6 +1,6 @@
 import "./Dashboard.css";
 import CommanderCard from "./Card";
-import { Button, Row, Col } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 function Dashboard() {

@@ -44,7 +44,7 @@ function CardSearch() {
 
   
     const [card, setCard] = useState("");
-    useEffect(() => {
+    useEffect((apiURL) => {
       axios.get(apiURL).then((reponse) => {
         setCard(reponse.data);
       });
