@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import CardSearch from "./Components/cardsearch/CardSearch";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
   {

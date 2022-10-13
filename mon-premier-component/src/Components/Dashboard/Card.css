@@ -1,25 +1,26 @@
-.CommanderArt {
+.CommanderCard {
+    width: 40rem;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: auto;
-    height: 30rem;
 }
 .Commander {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: auto;
-    color: white;
+    color: black;
     text-align: center;
 }
 .Title {
     padding-bottom: 20px;
 }
 .Oracle {
-    width: 35%;
+    width: 80%;
     
 }
-.a {
-    color: white;
-}
+a:link {
+    color:black;
+    background-color: transparent;
+  }

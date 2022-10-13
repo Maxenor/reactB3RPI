@@ -3,15 +3,21 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import '../Dashboard/Card.css';
 
-function CommanderCard() {
-  const apiURL = "https://api.scryfall.com/cards/random?q=is%3Acommander";
+function CardSearched(props) {
+  console.log(props.isClicked)
+  const apiURL = "https://api.scryfall.com/cards/random?q="
+  if (props.isClicked) {
+    const apiURL = "https://api.scryfall.com/cards/random?q=t:"+props.enteredCardType;
+  } else {
+    const apiURL = "https://api.scryfall.com/cards/random?q="
+  }
   
   const [card, setCard] = useState("");
-
+  console.log(apiURL)
+  console.log(props.enteredCardType)
   useEffect(() => {
     axios.get(apiURL).then((reponse) => {
       setCard(reponse.data);
-      console.log('axios')
     });
   }, []);
   return card !== "" ? (
@@ -23,8 +29,8 @@ function CommanderCard() {
       <Card.Text className="Commander Oracle Title">{card.oracle_text}</Card.Text>
     </Card>
   ) : (
-    <p className="Commander Title">Chargement de la carte...</p>
+    <p className="Commander Title">Pas de carte cherchée...</p>
   );
 }
 
-export default CommanderCard;
+export default CardSearched;

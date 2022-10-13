@@ -3,7 +3,7 @@ import './Login.css'
 
 function Login() {
   return (
-    <div className="app">
+    <div className="app Login">
       <SimpleInput />
     </div>
   );

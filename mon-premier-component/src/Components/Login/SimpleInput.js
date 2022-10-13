@@ -1,5 +1,6 @@
 import useInput from "./hook/useInputString";
 import { useNavigate } from "react-router-dom";
+import './Login.css';
 
 const SimpleInput = (props) => {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ const SimpleInput = (props) => {
     ? "form-control invalid"
     : "form-control";
   return (
-    <div>
+    <div className="Login">
       <h1>Se connecter</h1>
       <form onSubmit={formSubmissionHandler}>
         <div className={nameInputClasses}>
