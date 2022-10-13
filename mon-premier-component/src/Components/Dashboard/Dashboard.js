@@ -1,12 +1,18 @@
-import React from "react";
 import "./Dashboard.css";
-import Table from "./Table";
+import CommanderCard from "./Card";
+import {Button} from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
+  const navigate = useNavigate();
+  function handleClick() {
+    navigate('/cardsearch');
+  }
   return (
     <div className="App">
-      <h1 className="Title">Dashboard</h1>
-      <Table className='Table'/>
+      <h1 className="Title">Commander</h1>
+      <CommanderCard />
+      <Button onClick={handleClick} className="ButtonSearch">Rechercher une carte ?</Button>
     </div>
   );
 }

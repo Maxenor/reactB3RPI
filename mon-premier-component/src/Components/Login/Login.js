@@ -1,7 +1,7 @@
 import SimpleInput from "./SimpleInput";
 import './Login.css'
 
-function App() {
+function Login() {
   return (
     <div className="app">
       <SimpleInput />
@@ -9,4 +9,4 @@ function App() {
   );
 }
 
-export default App;
+export default Login;
