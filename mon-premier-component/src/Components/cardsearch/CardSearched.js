@@ -2,7 +2,6 @@ import { Card } from "react-bootstrap";
 import '../Dashboard/Card.css';
 
 function CardSearched(props) {
-  console.log(props.cardFound)
   return props.cardFound !== "" ? (
     <Card className="CommanderCard">
       <Card.Img className="CommanderArt" src={props.cardFound.card.image_uris.art_crop} />
