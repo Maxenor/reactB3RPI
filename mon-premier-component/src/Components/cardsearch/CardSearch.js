@@ -1,10 +1,10 @@
 import "./CardSearch.css";
 import useInput from "./hook/useInputString";
 import CardSearched from "./CardSearched";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function CardSearch() {
-
   const {
     cardType: enteredCardType,
     isValid: enteredCardTypeIsValid,
@@ -17,8 +17,8 @@ function CardSearch() {
   const [buttonClicked, setButtonCLick] = useState(false);
 
   const buttonClickHandler = (event) => {
-    setButtonCLick(true)
-  }
+    setButtonCLick(true);
+  };
 
   let formIsValid = false;
 
@@ -34,9 +34,22 @@ function CardSearch() {
     resetCardType();
   };
   const cardTypeInputClasses = enteredCardTypeIsInvalid
-  ? "form-control invalid"
-  : "form-control";
-  console.log(enteredCardTypeIsInvalid)
+    ? "form-control invalid"
+    : "form-control";
+
+  let apiURL;
+  apiURL = "https://api.scryfall.com/cards/random?q=t:" + enteredCardType;
+  console.log(enteredCardType)
+  console.log(apiURL)
+
+  
+    const [card, setCard] = useState("");
+    useEffect(() => {
+      axios.get(apiURL).then((reponse) => {
+        setCard(reponse.data);
+      });
+    }, []);
+  
   return (
     <div className="App">
       <form onSubmit={formSubmissionHandler}>
@@ -55,12 +68,12 @@ function CardSearch() {
           )}
         </div>
         <div className="form-actions">
-          <button onClick={buttonClickHandler} disabled={!formIsValid}>Chercher</button>
+          <button onClick={buttonClickHandler} disabled={!formIsValid}>
+            Chercher
+          </button>
         </div>
       </form>
-      {buttonClicked && (
-            <CardSearched enteredCardType={enteredCardType} isClicked={buttonClicked} />
-          )}
+      {buttonClicked && <CardSearched cardFound={{card}} />}
     </div>
   );
 }

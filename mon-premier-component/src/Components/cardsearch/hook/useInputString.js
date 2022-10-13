@@ -20,7 +20,7 @@ const useInput = (validateValue) => {
 
   const reset = () => {
     setEnteredCardType("");
-    cardTypeBlurHandler(false);
+    setCardTypeTouched(false);
   };
 
   return {
