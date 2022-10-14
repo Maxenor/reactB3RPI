@@ -61,44 +61,11 @@ Il faut au préalable créer et définir les routes et ensuite mettre le code g�
 
 Bootstrap est un outil très connu pour faciliter le développement front-end. Il propose une bibliothèque de composants préfabriqués comme des boutons, des champs input des tables etc avec des classes CSS toutes prêtes.
  
- # Site de déploiement
-J'ai utilisé le site 
+# Site de déploiement
+ 
+J'ai utilisé le site de déploiement en ligne Netlify. Il a permis de déployer en mode production mon application.
+Disponible sur ce lien : https://build--grand-sorbet-e51bd0.netlify.app/
 
-## KaTeX
+# Problèmes rencontrés
 
-You can render LaTeX mathematical expressions using [KaTeX](https://khan.github.io/KaTeX/):
-
-The *Gamma function* satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral
-
-$$
-\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
-$$
-
-> You can find more information about **LaTeX** mathematical expressions [here](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
-
-
-## UML diagrams
-
-You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
-
-```mermaid
-sequenceDiagram
-Alice ->> Bob: Hello Bob, how are you?
-Bob-->>John: How about you John?
-Bob--x Alice: I am good thanks!
-Bob-x John: I am good thanks!
-Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
-
-Bob-->Alice: Checking with John...
-Alice->John: Yes... John, how are you?
-```
-
-And this will produce a flow chart:
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
+Je n'ai pas reussi a passer mon objet card en props a mon composant CardSearched qui lui générait la carte. Problèmes rencontrés avec css et react-bootstrap.

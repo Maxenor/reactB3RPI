@@ -73,7 +73,7 @@ function CardSearch() {
           </button>
         </div>
       </form>
-      {buttonClicked && <CardSearched cardFound={{card}} />}
+      {buttonClicked && <CardSearched cardFound={{...card}} />}
     </div>
   );
 }
